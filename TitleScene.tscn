@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwo4b1qya8p6k"]
+[gd_scene load_steps=12 format=3 uid="uid://cwo4b1qya8p6k"]
 
 [ext_resource type="Script" path="res://lawnmower.gd" id="1_gu7k5"]
+[ext_resource type="Script" path="res://camControls.gd" id="2_6uler"]
 [ext_resource type="Script" path="res://trail.gd" id="2_b1mrj"]
+[ext_resource type="PackedScene" uid="uid://dhxt6f61gd6sd" path="res://UI.tscn" id="2_jwo10"]
 [ext_resource type="Texture2D" uid="uid://b3ba8e8ni1dn0" path="res://lawnmower.png" id="2_qs8uo"]
 [ext_resource type="Script" path="res://LawnmoverCollider.gd" id="3_q5edq"]
 [ext_resource type="Script" path="res://GrassEnemy.gd" id="5_lhfe0"]
@@ -26,6 +28,11 @@ script = ExtResource("1_gu7k5")
 
 [node name="Camera2D" type="Camera2D" parent="Lawnmower"]
 scale = Vector2(100, 100)
+script = ExtResource("2_6uler")
+
+[node name="Node2D" parent="Lawnmower/Camera2D" instance=ExtResource("2_jwo10")]
+position = Vector2(-38.4, -21.6)
+scale = Vector2(0.067, 0.067)
 
 [node name="Line2D" type="Line2D" parent="Lawnmower"]
 rotation = 1.5708

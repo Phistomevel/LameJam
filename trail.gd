@@ -29,5 +29,6 @@ func _process(delta):
 	else:
 		dashCooldown += delta
 		if points.size() >=1:
+			rotate(-2.5*delta)
 			remove_point(0)
 	pass

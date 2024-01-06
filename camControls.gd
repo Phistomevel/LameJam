@@ -1,4 +1,4 @@
-extends Area2D
+extends Camera2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,11 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	global_rotation = 0
 	pass
-
-
-func _on_area_entered(area):
-	print("aefafa	")
-	if get_parent().isDashing:
-		print("heyoo")
-	pass # Replace with function body.
