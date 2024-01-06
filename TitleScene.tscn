@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwo4b1qya8p6k"]
+
+[ext_resource type="Script" path="res://lawnmower.gd" id="1_gu7k5"]
+[ext_resource type="Script" path="res://trail.gd" id="2_b1mrj"]
+[ext_resource type="Texture2D" uid="uid://b3ba8e8ni1dn0" path="res://lawnmower.png" id="2_qs8uo"]
+
+[sub_resource type="Curve" id="Curve_abg3f"]
+_data = [Vector2(0, 0), 0.0, 90.0, 0, 0, Vector2(1, 0.984906), 0.984906, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l6ta"]
+size = Vector2(0.9, 5.81667)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(15, 15)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Lawnmower" type="Node2D" parent="."]
+scale = Vector2(0.01, 0.01)
+script = ExtResource("1_gu7k5")
+
+[node name="Line2D" type="Line2D" parent="Lawnmower"]
+rotation = 1.5708
+scale = Vector2(100, 100)
+width = 6.0
+width_curve = SubResource("Curve_abg3f")
+default_color = Color(0, 1, 0, 1)
+script = ExtResource("2_b1mrj")
+
+[node name="Area2D" type="Area2D" parent="Lawnmower"]
+scale = Vector2(100, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lawnmower/Area2D"]
+position = Vector2(-1.73333, 0)
+shape = SubResource("RectangleShape2D_6l6ta")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lawnmower"]
+rotation = 1.5708
+texture = ExtResource("2_qs8uo")
