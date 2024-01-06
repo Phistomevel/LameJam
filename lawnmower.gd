@@ -6,7 +6,7 @@ extends Node2D
 @export var DashCooldownLength: float = 4
 
 var dash
-var isDashing
+@export var isDashing: bool = false
 var dashCooldown
 # Called when the node enters the scene tree for the first time.
 func _ready():

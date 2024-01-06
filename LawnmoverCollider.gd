@@ -6,12 +6,12 @@ func _ready():
 	pass # Replace with function body.
 
 
-func area_entered(other):
-	print("heyooo")
-	if get_parent().is_dashing:
-		print("heyoo")
-	pass
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_entered(area):
+	if get_parent().isDashing:
+		print("heyoo")
+	pass # Replace with function body.

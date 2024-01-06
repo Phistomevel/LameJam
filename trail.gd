@@ -25,7 +25,7 @@ func _process(delta):
 		dashCooldown = 0
 	if dash > 0:
 		dash = dash - delta
-		add_point(Vector2(0, 10-dash*5),0)
+		add_point(Vector2(0, 11-dash*5),0)
 	else:
 		dashCooldown += delta
 		if points.size() >=1:

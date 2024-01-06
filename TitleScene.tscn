@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwo4b1qya8p6k"]
+[gd_scene load_steps=10 format=3 uid="uid://cwo4b1qya8p6k"]
 
 [ext_resource type="Script" path="res://lawnmower.gd" id="1_gu7k5"]
 [ext_resource type="Script" path="res://trail.gd" id="2_b1mrj"]
 [ext_resource type="Texture2D" uid="uid://b3ba8e8ni1dn0" path="res://lawnmower.png" id="2_qs8uo"]
+[ext_resource type="Script" path="res://LawnmoverCollider.gd" id="3_q5edq"]
 [ext_resource type="Script" path="res://GrassEnemy.gd" id="5_lhfe0"]
 [ext_resource type="Texture2D" uid="uid://bliufeg2okvu2" path="res://GrassEnemy.png" id="6_kmjs7"]
 
@@ -36,6 +37,7 @@ script = ExtResource("2_b1mrj")
 
 [node name="Area2D" type="Area2D" parent="Lawnmower"]
 scale = Vector2(100, 100)
+script = ExtResource("3_q5edq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lawnmower/Area2D"]
 shape = SubResource("RectangleShape2D_6l6ta")
@@ -56,3 +58,6 @@ texture = ExtResource("6_kmjs7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrassEnemy/Area2D"]
 shape = SubResource("RectangleShape2D_br71k")
+
+[connection signal="area_entered" from="Lawnmower/Area2D" to="Lawnmower/Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="GrassEnemy/Area2D" to="GrassEnemy" method="_on_area_2d_area_entered"]
