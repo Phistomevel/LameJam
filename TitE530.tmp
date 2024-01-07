@@ -43,6 +43,7 @@ texture = ExtResource("2_qs8uo")
 [node name="GrassEnemy" type="Node2D" parent="."]
 position = Vector2(18.825, 0)
 script = ExtResource("5_lhfe0")
+Speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="GrassEnemy"]
 scale = Vector2(0.03, 0.03)

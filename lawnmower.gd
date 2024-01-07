@@ -23,10 +23,12 @@ func _process(delta):
 		isDashing = true
 		dashCooldown = 0
 	if dash > 0:
+		get_child(0).get_child(0).setDashCharge(dash, DashLength)
 		dash = dash - delta
 		position = position + delta * Vector2(  cos(rotation) , sin(rotation)) * DashSpeed
 	else:
 		isDashing = false
 		rotate(2.5*delta)
 		dashCooldown += delta
+		get_child(0).get_child(0).setDashCharge(dashCooldown, DashCooldownLength)
 	pass
