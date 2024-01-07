@@ -1,18 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwo4b1qya8p6k"]
+[gd_scene load_steps=11 format=3 uid="uid://cwo4b1qya8p6k"]
 
 [ext_resource type="Script" path="res://lawnmower.gd" id="1_gu7k5"]
 [ext_resource type="Script" path="res://camControls.gd" id="2_6uler"]
 [ext_resource type="PackedScene" uid="uid://dhxt6f61gd6sd" path="res://UI.tscn" id="2_jwo10"]
-[ext_resource type="Texture2D" uid="uid://b3ba8e8ni1dn0" path="res://lawnmower.png" id="2_qs8uo"]
 [ext_resource type="Script" path="res://LawnmoverCollider.gd" id="3_q5edq"]
+[ext_resource type="Texture2D" uid="uid://bcb0obbaaw2er" path="res://roboterMainMitSageblattern.png" id="5_44p1l"]
 [ext_resource type="Script" path="res://GrassEnemy.gd" id="5_lhfe0"]
-[ext_resource type="Texture2D" uid="uid://bliufeg2okvu2" path="res://GrassEnemy.png" id="6_kmjs7"]
+[ext_resource type="Texture2D" uid="uid://cbajqfd3o545a" path="res://bosesGras1.png" id="7_n413v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l6ta"]
-size = Vector2(8.93333, 5.81667)
+size = Vector2(1.53333, 6.33333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skie8"]
+size = Vector2(5.8, 5.86667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br71k"]
-size = Vector2(6.4, 6.73333)
+size = Vector2(5.06667, 7.03333)
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(15, 15)
@@ -33,25 +36,40 @@ scale = Vector2(0.067, 0.067)
 scale = Vector2(100, 100)
 script = ExtResource("3_q5edq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lawnmower/Area2D"]
+[node name="SawTrigger" type="CollisionShape2D" parent="Lawnmower/Area2D"]
+position = Vector2(1.83333, 0.1)
 shape = SubResource("RectangleShape2D_6l6ta")
+
+[node name="Area2D2" type="Area2D" parent="Lawnmower"]
+scale = Vector2(100, 100)
+
+[node name="HarmTrigger" type="CollisionShape2D" parent="Lawnmower/Area2D2"]
+position = Vector2(-1.9, 3.3776e-08)
+shape = SubResource("RectangleShape2D_skie8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Lawnmower"]
 rotation = 1.5708
-texture = ExtResource("2_qs8uo")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_44p1l")
+
+[node name="EnemySpawner" type="Node2D" parent="Lawnmower"]
+scale = Vector2(100, 100)
 
 [node name="GrassEnemy" type="Node2D" parent="."]
 position = Vector2(18.825, 0)
 script = ExtResource("5_lhfe0")
 
 [node name="Sprite2D" type="Sprite2D" parent="GrassEnemy"]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("6_kmjs7")
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("7_n413v")
 
 [node name="Area2D" type="Area2D" parent="GrassEnemy"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrassEnemy/Area2D"]
+position = Vector2(-0.0249996, -0.150001)
 shape = SubResource("RectangleShape2D_br71k")
 
 [connection signal="area_entered" from="Lawnmower/Area2D" to="Lawnmower/Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="Lawnmower/Area2D2" to="Lawnmower/Area2D" method="_on_harmed"]
+[connection signal="area_entered" from="Lawnmower/Area2D2" to="Lawnmower/Area2D2" method="_on_area_entered"]
 [connection signal="area_entered" from="GrassEnemy/Area2D" to="GrassEnemy" method="_on_area_2d_area_entered"]
