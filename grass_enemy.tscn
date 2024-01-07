@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://duxb2kovrpghg"]
+
+[ext_resource type="Script" path="res://GrassEnemy.gd" id="1_for8m"]
+[ext_resource type="Texture2D" uid="uid://cbajqfd3o545a" path="res://bosesGras1.png" id="2_k8gl7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cdgl"]
+size = Vector2(5.06667, 7.03333)
+
+[node name="GrassEnemy" type="Node2D"]
+position = Vector2(40.125, 50)
+scale = Vector2(10.525, 10.525)
+script = ExtResource("1_for8m")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("2_k8gl7")
+
+[node name="GrassCollider2" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassCollider2"]
+position = Vector2(-0.0249996, -0.150001)
+shape = SubResource("RectangleShape2D_4cdgl")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

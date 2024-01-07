@@ -8,11 +8,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var target = get_node("../Lawnmower").get_position()
-	position = position + (target - position).normalized()*delta*Speed
+	#var target = get_node("../Lawnmower").get_position()
+	#position = position + (target - position).normalized()*delta*Speed
 	pass
 
 
 func _on_area_2d_area_entered(area):
+	if area.get_parent().name == "Lawnmower":
+		if get_node("GrassCollider2"):
+			get_node("GrassCollider2").queue_free()
+		$"Timer".start(.01)
+		pass # Replace with function body.
+
+
+
+func _on_timer_timeout():
 	queue_free()
 	pass # Replace with function body.
