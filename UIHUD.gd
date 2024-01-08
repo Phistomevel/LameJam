@@ -38,7 +38,7 @@ func setEXP(newValue : int):
 		level = level + 1 
 		levelUP.emit()
 		EXP = 0
-	get_child(2).get_child(0).value = 100 * EXP/(levelList[level]-levelList[level-1])
+	get_child(2).get_child(0).value = 100 * EXP/levelList[level]
 	get_child(2).get_child(1).text = "Level " + var_to_str(level) + "EXP "+ var_to_str(EXP)
 	pass
 

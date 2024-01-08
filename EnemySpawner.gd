@@ -25,5 +25,5 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	spawnEnemy(0, $"../Lawnmower".global_position + Vector2(randi_range(200,210)*([-1,1][randi_range(0,1)]), randi_range(200,210))*([-1,1][randi_range(0,1)]) )
+	spawnEnemy(0, $"../Lawnmower".position + Vector2(randi_range(200,210)*([-1,1][randi_range(0,1)]), randi_range(200,210))*([-1,1][randi_range(0,1)]) )
 	pass # Replace with function body.
