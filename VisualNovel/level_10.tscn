@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq6fi4u1wxjme"]
+
+[ext_resource type="Script" path="res://Level 10 Diag.gd" id="1_4bimo"]
+[ext_resource type="Texture2D" uid="uid://7xf4geqw6054" path="res://VisualNovel/dialogRoboter.png" id="2_5wjye"]
+[ext_resource type="Texture2D" uid="uid://bxe230hk07ay4" path="res://VisualNovel/paper.png" id="3_28kto"]
+
+[node name="Level 10" type="Node2D"]
+
+[node name="Level 10 Diag" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 476.0
+offset_right = 1075.0
+offset_bottom = 617.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4bimo")
+
+[node name="DialogRoboterLevel10" type="Sprite2D" parent="Level 10 Diag"]
+position = Vector2(165, -89)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5wjye")
+
+[node name="TextureRect" type="TextureRect" parent="Level 10 Diag"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_28kto")
+expand_mode = 1
+
+[node name="Level10Text" type="Label" parent="Level 10 Diag"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = -337.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.47, 1.47)
+autowrap_mode = 3
