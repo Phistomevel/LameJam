@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://daepcfjwnyyct"]
+
+[ext_resource type="Script" path="res://level_up_screen.gd" id="1_g45mc"]
+
+[node name="LevelUpScreen" type="Node2D"]
+script = ExtResource("1_g45mc")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(180, 400)
+offset_left = 498.0
+offset_top = 130.0
+offset_right = 678.0
+offset_bottom = 530.0
+mouse_default_cursor_shape = 2
+
+[node name="Label" type="Label" parent="ColorRect3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 173.0
+offset_right = 168.0
+offset_bottom = 270.0
+
+[node name="Button" type="Button" parent="ColorRect3"]
+modulate = Color(0, 0.00784314, 0, 0)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 400.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(180, 400)
+offset_left = 126.0
+offset_top = 130.0
+offset_right = 306.0
+offset_bottom = 530.0
+mouse_default_cursor_shape = 2
+
+[node name="Label" type="Label" parent="ColorRect"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 173.0
+offset_right = 168.0
+offset_bottom = 270.0
+
+[node name="Button" type="Button" parent="ColorRect"]
+modulate = Color(0, 0.00784314, 0, 0)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 400.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(180, 400)
+offset_left = 859.0
+offset_top = 130.0
+offset_right = 1039.0
+offset_bottom = 530.0
+mouse_default_cursor_shape = 2
+
+[node name="Label" type="Label" parent="ColorRect2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 173.0
+offset_right = 168.0
+offset_bottom = 270.0
+
+[node name="Button" type="Button" parent="ColorRect2"]
+modulate = Color(0, 0.00784314, 0, 0)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 400.0
+
+[connection signal="pressed" from="ColorRect3/Button" to="." method="Choice3"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="Choice2"]
+[connection signal="pressed" from="ColorRect2/Button" to="." method="Choice1"]
