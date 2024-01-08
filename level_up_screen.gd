@@ -3,9 +3,7 @@ extends Node2D
 var LevelUpOptions = ["lower dash \nrecharge",
 					"increase dash \ndistance",
 					"increase dash \nspeed",
-					"increase rotation \nspeed",
-					"lower rotation \nchange recharge",
-					"(potentially) lower \nenemy speed"]
+					"increase rotation \nspeed"]
 var currOptions = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,10 +12,10 @@ func _ready():
 
 func onLevelUp(level : int):
 	Engine.time_scale = 0
-	var listHelper = [0,1,2,3,4,5]
+	var listHelper = [0,1,2,3]
 	self.visible = true
 	for i in range(0,3):
-		var randomNumber = randi_range(0,5-i)
+		var randomNumber = randi_range(0,3-i)
 		get_child(i).get_child(0).text = LevelUpOptions[listHelper[randomNumber]]
 		currOptions.push_back(listHelper[randomNumber])
 		listHelper.remove_at(randomNumber)

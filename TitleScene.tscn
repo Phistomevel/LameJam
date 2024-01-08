@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwo4b1qya8p6k"]
+[gd_scene load_steps=16 format=3 uid="uid://cwo4b1qya8p6k"]
 
 [ext_resource type="Script" path="res://lawnmower.gd" id="1_gu7k5"]
 [ext_resource type="Script" path="res://camControls.gd" id="2_6uler"]
@@ -9,12 +9,24 @@
 [ext_resource type="AudioStream" uid="uid://cr6wr7q78ee5d" path="res://intro.mp3" id="8_5shmi"]
 [ext_resource type="PackedScene" uid="uid://dtbmb63ogycr5" path="res://enemy_spawner.tscn" id="8_mhbho"]
 [ext_resource type="Script" path="res://MusicController.gd" id="8_wryji"]
+[ext_resource type="Texture2D" uid="uid://bc4prqkwp4qg8" path="res://grasTile.png" id="10_mqebw"]
+[ext_resource type="Script" path="res://autofill.gd" id="11_3qnvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l6ta"]
 size = Vector2(1.53333, 6.33333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skie8"]
 size = Vector2(5.8, 5.86667)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s00h4"]
+texture = ExtResource("10_mqebw")
+texture_region_size = Vector2i(1080, 1080)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0whck"]
+tile_size = Vector2i(1060, 1060)
+terrain_set_0/mode = 0
+sources/1 = SubResource("TileSetAtlasSource_s00h4")
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(15, 15)
@@ -62,6 +74,14 @@ scale = Vector2(0.07, 0.07)
 stream = ExtResource("8_5shmi")
 volume_db = -10.965
 script = ExtResource("8_wryji")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -3
+tile_set = SubResource("TileSet_0whck")
+format = 2
+layer_0/modulate = Color(0, 1, 0, 1)
+layer_0/tile_data = PackedInt32Array(-131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -196599, 1, 0, -196598, 1, 0, -196597, 1, 0, -196596, 1, 0, -1, 1, 0, -65536, 1, 0, 65535, 1, 0, 0, 1, 0, -2, 1, 0, -65538, 1, 0, -65537, 1, 0, -131072, 1, 0, -131071, 1, 0, -65535, 1, 0, 1, 1, 0, 65537, 1, 0, 65536, 1, 0, 65534, 1, 0, 131071, 1, 0, 131070, 1, 0, 196605, 1, 0, 131069, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 65538, 1, 0, 2, 1, 0, -65534, 1, 0, -131070, 1, 0, -131073, 1, 0, -131074, 1, 0, -131075, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -65539, 1, 0, -3, 1, 0, 65533, 1, 0, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 131075, 1, 0, 65539, 1, 0, 3, 1, 0, -65533, 1, 0, -131069, 1, 0, -196605, 1, 0, -262141, 1, 0, -262143, 1, 0, -262142, 1, 0)
+script = ExtResource("11_3qnvp")
 
 [connection signal="levelUP" from="Lawnmower/Camera2D/Node2D" to="Lawnmower" method="_on_level_up"]
 [connection signal="area_entered" from="Lawnmower/Area2D" to="Lawnmower/Area2D" method="_on_area_entered"]
