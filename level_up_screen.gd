@@ -29,7 +29,7 @@ func Choice(chosenChild):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position = $"../Lawnmower".global_position+ Vector2(-41, -21.25)
+	position = $"../Lawnmower".position+ Vector2(-41, -21.25)
 	pass
 
 

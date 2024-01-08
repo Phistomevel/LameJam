@@ -10,6 +10,7 @@ light_mode = 1
 script = ExtResource("1_ax63w")
 
 [node name="DashCharge" type="ColorRect" parent="."]
+z_index = 36
 custom_minimum_size = Vector2(140, 30)
 offset_top = 40.0
 offset_right = 140.0
@@ -29,6 +30,7 @@ value = 50.0
 show_percentage = false
 
 [node name="HP" type="ColorRect" parent="."]
+z_index = 36
 custom_minimum_size = Vector2(250, 40)
 
 [node name="Gauge" type="ProgressBar" parent="HP"]
@@ -45,6 +47,7 @@ value = 50.0
 show_percentage = false
 
 [node name="EXPBar" type="ColorRect" parent="."]
+z_index = 36
 custom_minimum_size = Vector2(280, 30)
 offset_left = 314.0
 offset_top = 611.0

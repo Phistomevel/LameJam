@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://LawnmoverCollider.gd" id="3_q5edq"]
 [ext_resource type="Texture2D" uid="uid://bcb0obbaaw2er" path="res://roboterMainMitSageblattern.png" id="5_44p1l"]
 [ext_resource type="PackedScene" uid="uid://daepcfjwnyyct" path="res://level_up_screen.tscn" id="7_h5l0x"]
-[ext_resource type="AudioStream" uid="uid://cor0qslmh67x6" path="res://bridge2.mp3" id="7_pi5e0"]
+[ext_resource type="AudioStream" uid="uid://cr6wr7q78ee5d" path="res://intro.mp3" id="8_5shmi"]
 [ext_resource type="PackedScene" uid="uid://dtbmb63ogycr5" path="res://enemy_spawner.tscn" id="8_mhbho"]
 [ext_resource type="Script" path="res://MusicController.gd" id="8_wryji"]
 
@@ -59,7 +59,7 @@ position = Vector2(-40.9333, -21.2667)
 scale = Vector2(0.07, 0.07)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_pi5e0")
+stream = ExtResource("8_5shmi")
 volume_db = -10.965
 script = ExtResource("8_wryji")
 
