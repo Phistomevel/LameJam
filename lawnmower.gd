@@ -5,6 +5,7 @@ extends Node2D
 @export var DashLength: float = 1.5
 @export var DashCooldownLength: float = 4
 
+var level = 1
 var dash
 @export var isDashing: bool = false
 var dashCooldown
@@ -32,3 +33,10 @@ func _process(delta):
 		dashCooldown += delta
 		get_child(0).get_child(0).setDashCharge(dashCooldown, DashCooldownLength)
 	pass
+
+
+func _on_level_up():
+	level = level + 1
+	Engine.time_scale = 0
+	get_parent().get_node("LevelUpScreen").onLevelUp(level)
+	pass # Replace with function body.

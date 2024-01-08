@@ -8,8 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#var target = get_node("../Lawnmower").get_position()
-	#position = position + (target - position).normalized()*delta*Speed
+	#print(get_parent().name)
+	var target =get_node("../../Lawnmower").get_global_position()
+	global_position = global_position + (target - global_position).normalized()*delta* (Speed *5+2)
 	pass
 
 

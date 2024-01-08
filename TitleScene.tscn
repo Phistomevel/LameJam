@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwo4b1qya8p6k"]
+[gd_scene load_steps=12 format=3 uid="uid://cwo4b1qya8p6k"]
 
 [ext_resource type="Script" path="res://lawnmower.gd" id="1_gu7k5"]
 [ext_resource type="Script" path="res://camControls.gd" id="2_6uler"]
 [ext_resource type="PackedScene" uid="uid://dhxt6f61gd6sd" path="res://UI.tscn" id="2_jwo10"]
 [ext_resource type="Script" path="res://LawnmoverCollider.gd" id="3_q5edq"]
 [ext_resource type="Texture2D" uid="uid://bcb0obbaaw2er" path="res://roboterMainMitSageblattern.png" id="5_44p1l"]
-[ext_resource type="PackedScene" uid="uid://duxb2kovrpghg" path="res://grass_enemy.tscn" id="6_r7nrt"]
+[ext_resource type="PackedScene" uid="uid://daepcfjwnyyct" path="res://level_up_screen.tscn" id="7_h5l0x"]
+[ext_resource type="AudioStream" uid="uid://cor0qslmh67x6" path="res://bridge2.mp3" id="7_pi5e0"]
 [ext_resource type="PackedScene" uid="uid://dtbmb63ogycr5" path="res://enemy_spawner.tscn" id="8_mhbho"]
+[ext_resource type="Script" path="res://MusicController.gd" id="8_wryji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l6ta"]
 size = Vector2(1.53333, 6.33333)
@@ -49,13 +51,20 @@ rotation = 1.5708
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_44p1l")
 
-[node name="GrassEnemy" parent="." instance=ExtResource("6_r7nrt")]
-position = Vector2(27.4, 0.333333)
-scale = Vector2(1, 1)
-
 [node name="EnemySpawner" parent="." instance=ExtResource("8_mhbho")]
 scale = Vector2(0.1, 0.1)
 
+[node name="LevelUpScreen" parent="." instance=ExtResource("7_h5l0x")]
+position = Vector2(-40.9333, -21.2667)
+scale = Vector2(0.07, 0.07)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pi5e0")
+volume_db = -10.965
+script = ExtResource("8_wryji")
+
+[connection signal="levelUP" from="Lawnmower/Camera2D/Node2D" to="Lawnmower" method="_on_level_up"]
 [connection signal="area_entered" from="Lawnmower/Area2D" to="Lawnmower/Area2D" method="_on_area_entered"]
 [connection signal="area_entered" from="Lawnmower/Area2D2" to="Lawnmower/Area2D" method="_on_harmed"]
 [connection signal="area_entered" from="Lawnmower/Area2D2" to="Lawnmower/Area2D2" method="_on_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

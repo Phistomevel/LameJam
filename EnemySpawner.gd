@@ -10,9 +10,8 @@ func _ready():
 func spawnEnemy(type : int, pos : Vector2):
 	var newEnemy = enemylist[type].duplicate(8)
 	newEnemy.position = pos 
-	print(pos)
 	newEnemy.set_visible(true)
-	newEnemy.speed = 1
+	newEnemy.Speed = $"../Lawnmower".level
 	newEnemy.get_child(1).monitoring = true
 	newEnemy.get_child(1).monitorable = true
 	add_child(newEnemy)
@@ -26,5 +25,5 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	spawnEnemy(0, $"../Lawnmower".global_position + Vector2(randi_range(50,60)*([-1,1][randi_range(0,1)]), randi_range(50,60))*([-1,1][randi_range(0,1)]) )
+	spawnEnemy(0, $"../Lawnmower".global_position + Vector2(randi_range(200,210)*([-1,1][randi_range(0,1)]), randi_range(200,210))*([-1,1][randi_range(0,1)]) )
 	pass # Replace with function body.
