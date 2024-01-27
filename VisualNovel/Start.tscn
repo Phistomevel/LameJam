@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://di3yx576lvj5j"]
 
 [ext_resource type="Script" path="res://VisualNovel/StartSceneControl.gd" id="1_7yio7"]
-[ext_resource type="Texture2D" uid="uid://7xf4geqw6054" path="res://VisualNovel/dialogRoboter.png" id="1_ey1hg"]
-[ext_resource type="Texture2D" uid="uid://bxe230hk07ay4" path="res://VisualNovel/paper.png" id="3_546p6"]
+[ext_resource type="Texture2D" uid="uid://7xf4geqw6054" path="res://dialogRoboter.png" id="1_ey1hg"]
+[ext_resource type="Texture2D" uid="uid://bxe230hk07ay4" path="res://paper.png" id="3_546p6"]
 [ext_resource type="Texture2D" uid="uid://cbajqfd3o545a" path="res://bosesGras1.png" id="3_ceggy"]
 
 [node name="StartScene" type="Node2D"]

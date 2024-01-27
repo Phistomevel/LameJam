@@ -3,7 +3,8 @@ extends Node2D
 var LevelUpOptions = ["lower dash \nrecharge",
 					"increase dash \ndistance",
 					"increase dash \nspeed",
-					"increase rotation \nspeed"]
+					"increase rotation \nspeed",
+					"increase Vampirism"]
 var currOptions = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,10 +13,10 @@ func _ready():
 
 func onLevelUp(level : int):
 	Engine.time_scale = 0
-	var listHelper = [0,1,2,3]
+	var listHelper = [0,1,2,3,4]
 	self.visible = true
 	for i in range(0,3):
-		var randomNumber = randi_range(0,3-i)
+		var randomNumber = randi_range(0,4-i)
 		get_child(i).get_child(0).text = LevelUpOptions[listHelper[randomNumber]]
 		currOptions.push_back(listHelper[randomNumber])
 		listHelper.remove_at(randomNumber)
@@ -33,7 +34,7 @@ func Choice(chosenChild):
 		3:
 			mowerObj.RotationSpeed = mowerObj.RotationSpeed * 1.1
 		4:
-			pass
+			mowerObj.Vampirism *= 1.1
 		5: 
 			pass
 	while currOptions.size() != 0:

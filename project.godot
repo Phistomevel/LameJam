@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="The Rat Game"
+config/name="LameJam Entry 2024/1"
 run/main_scene="res://TitleScene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"

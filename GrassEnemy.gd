@@ -3,6 +3,7 @@ extends Node2D
 @export var Speed: int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(($"../../Lawnmower".global_position - global_position).length())
 	pass # Replace with function body.
 
 

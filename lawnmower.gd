@@ -4,7 +4,7 @@ extends Node2D
 @export var DashSpeed: float = 10
 @export var DashLength: float = 1.5
 @export var DashCooldownLength: float = 4
-
+@export var Vampirism : float = 0.1
 var level = 1
 var dash
 @export var isDashing: bool = false

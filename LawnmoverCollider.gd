@@ -15,10 +15,11 @@ func _on_area_entered(area):
 	var xpbar = get_parent().get_child(0).get_child(0)
 	#print(area.get_parent().Speed)
 	if area.get_parent().name != "Lawnmower":
+		$"../Camera2D".shake()
 		print(area.get_parent().name)
 		#print(area.name)
 		xpbar.setEXP(xpbar.getEXP() + ceil(area.get_parent().Speed))
-		lifesteal += 0.1
+		lifesteal += get_parent().Vampirism
 		if  lifesteal>=1:
 			lifesteal -= 1
 			xpbar.setHP(xpbar.getHP()+1)
