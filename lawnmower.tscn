@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo4whsp8vjhks"]
+
+[ext_resource type="Script" path="res://lawnmower.gd" id="1_kp5oc"]
+[ext_resource type="Script" path="res://LawnmoverCollider.gd" id="4_hcufd"]
+[ext_resource type="Texture2D" uid="uid://bcb0obbaaw2er" path="res://roboterMainMitSageblattern.png" id="5_bjrud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l6ta"]
+size = Vector2(1.53333, 6.33333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skie8"]
+size = Vector2(5.8, 5.86667)
+
+[node name="Lawnmower" type="Node2D"]
+scale = Vector2(0.01, 0.01)
+script = ExtResource("1_kp5oc")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(100, 100)
+script = ExtResource("4_hcufd")
+
+[node name="SawTrigger" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.83333, 0.1)
+shape = SubResource("RectangleShape2D_6l6ta")
+
+[node name="Area2D2" type="Area2D" parent="."]
+scale = Vector2(100, 100)
+
+[node name="HarmTrigger" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-1.9, 3.3776e-08)
+shape = SubResource("RectangleShape2D_skie8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_bjrud")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="Area2D" method="_on_harmed"]
+[connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]

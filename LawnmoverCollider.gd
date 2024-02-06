@@ -12,10 +12,10 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	var xpbar = get_parent().get_child(0).get_child(0)
+	var xpbar =$"../../Camera2D/UI"
 	#print(area.get_parent().Speed)
 	if area.get_parent().name != "Lawnmower":
-		$"../Camera2D".shake()
+		##$"../Camera2D".shake()
 		print(area.get_parent().name)
 		#print(area.name)
 		xpbar.setEXP(xpbar.getEXP() + ceil(area.get_parent().Speed))
@@ -28,6 +28,6 @@ func _on_area_entered(area):
 
 
 func _on_harmed(area):
-	get_parent().get_child(0).get_child(0).setHP(get_parent().get_child(0).get_child(0).getHP()-1)
+	$"../../Camera2D/UI".setHP($"../../Camera2D/UI".getHP()-1)
 	area.get_parent().queue_free()
 	pass # Replace with function body.

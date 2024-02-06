@@ -4,7 +4,7 @@ extends Node2D
 @export var DashSpeed: float = 10
 @export var DashLength: float = 1.5
 @export var DashCooldownLength: float = 4
-@export var Vampirism : float = 0.1
+@export var Vampirism : float = 0.1	
 var level = 1
 var dash
 @export var isDashing: bool = false
@@ -24,14 +24,14 @@ func _process(delta):
 		isDashing = true
 		dashCooldown = 0
 	if dash > 0:
-		get_child(0).get_child(0).setDashCharge(dash, DashLength)
+		$"../Camera2D/UI".setDashCharge(dash, DashLength)
 		dash = dash - delta
 		position = position + delta * Vector2(  cos(rotation) , sin(rotation)) * DashSpeed
 	else:
 		isDashing = false
 		rotate(2.5*delta)
 		dashCooldown += delta
-		get_child(0).get_child(0).setDashCharge(dashCooldown, DashCooldownLength)
+		$"../Camera2D/UI".setDashCharge(dashCooldown, DashCooldownLength)
 	pass
 
 
@@ -40,3 +40,5 @@ func _on_level_up():
 	Engine.time_scale = 0
 	get_parent().get_node("LevelUpScreen").onLevelUp(level)
 	pass # Replace with function body.
+
+
