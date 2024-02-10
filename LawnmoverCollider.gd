@@ -1,6 +1,7 @@
 extends Area2D
 
 var lifesteal = 0
+@onready var myUI = $"../../Camera2D/CanvasLayer/UI"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,7 +13,7 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	var xpbar =$"../../Camera2D/UI"
+	var xpbar =$"../../Camera2D/CanvasLayer/UI"
 	#print(area.get_parent().Speed)
 	if area.get_parent().name != "Lawnmower":
 		##$"../Camera2D".shake()
@@ -28,6 +29,6 @@ func _on_area_entered(area):
 
 
 func _on_harmed(area):
-	$"../../Camera2D/UI".setHP($"../../Camera2D/UI".getHP()-1)
+	myUI.setHP(myUI.getHP()-1)
 	area.get_parent().queue_free()
 	pass # Replace with function body.

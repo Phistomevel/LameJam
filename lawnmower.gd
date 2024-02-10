@@ -9,6 +9,8 @@ var level = 1
 var dash
 @export var isDashing: bool = false
 var dashCooldown
+
+@onready var myUI = $"../Camera2D/CanvasLayer/UI"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dashCooldown = DashCooldownLength
@@ -24,14 +26,14 @@ func _process(delta):
 		isDashing = true
 		dashCooldown = 0
 	if dash > 0:
-		$"../Camera2D/UI".setDashCharge(dash, DashLength)
+		myUI.setDashCharge(dash, DashLength)
 		dash = dash - delta
 		position = position + delta * Vector2(  cos(rotation) , sin(rotation)) * DashSpeed
 	else:
 		isDashing = false
 		rotate(2.5*delta)
 		dashCooldown += delta
-		$"../Camera2D/UI".setDashCharge(dashCooldown, DashCooldownLength)
+		myUI.setDashCharge(dashCooldown, DashCooldownLength)
 	pass
 
 

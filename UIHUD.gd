@@ -49,5 +49,5 @@ func getLevel():
 	return level	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position = get_parent().get_global_position()+Vector2(-575,-324) 
+#	global_position = get_parent().get_global_position() + Vector2(-576,-324) 
 	pass

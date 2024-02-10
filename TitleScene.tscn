@@ -54,9 +54,10 @@ script = ExtResource("11_3qnvp")
 scale = Vector2(100, 100)
 script = ExtResource("2_6uler")
 
-[node name="UI" parent="Camera2D" instance=ExtResource("2_jwo10")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource("2_jwo10")]
 top_level = true
-position = Vector2(-575, -324)
 
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
-[connection signal="levelUP" from="Camera2D/UI" to="Lawnmower" method="_on_level_up"]
+[connection signal="levelUP" from="Camera2D/CanvasLayer/UI" to="Lawnmower" method="_on_level_up"]
